@@ -1,0 +1,35 @@
+﻿@model VitruviSoft.BLL.Models.GroupModel
+
+@{
+    ViewData["Title"] = "AddGroup";
+}
+
+<h3 style="color: #343a40; padding-top: 70px">Add Group</h3>
+
+<hr />
+
+<div class="row" style="background-color: #d1d1d1; color: #343a40;">
+    <div class="col-md-4">
+        <form asp-action="Add">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type" class="control-label"></label>
+                <input asp-for="Type" class="form-control" />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ParentId" class="control-label"></label>
+                <input asp-for="ParentId" class="form-control" />
+                <span asp-validation-for="ParentId" class="text-danger"></span>
+            </div>
+            <div>
+                <input class="btn btn-outline-success" asp-action="Add" type="submit" value="Add" />
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+﻿@model VitruviSoft.PresentationLayer.Models.GroupViewModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h3 style="color: #343a40; padding-top: 70px">Groups & Providers</h3>
+
+<hr />
+
+<table class="table" bgcolor="#d1d1d1">
+    <thead>
+        <tr bgcolor="#343a40" style="color: white">
+            <th>
+                Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Type
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model.Groups)
+        {
+        <tr  style="background-color: gold">
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@item.Id">Details</a>
+                <a class="btn btn-outline-info" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+        }
+        @foreach (var item in Model.Providers)
+        {
+    <tr  style="background-color: #b6ff00">
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            <a class="btn btn-outline-info" asp-controller="Provider" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+        </td>
+    </tr>
+        }
+    </tbody>
+</table>
+
